@@ -71,7 +71,7 @@ function editCreds(i) {
     var newKey = localStorage.key(i) + " CREDITS"
     var x = localStorage.getItem(newKey)
     var p = prompt("Edit info: ", x)
-    
+
     if (p === null) {
       return; //break out of the function early
     }
@@ -152,6 +152,7 @@ var title = document.createElement("H1")
 var nn = localStorage.getItem("name")
 title.setAttribute("onclick", "editNameN()")
 title.setAttribute("id", "welc")
+title.setAttribute("class", "borderWound")
 title.innerText = nn + "'s GPA Page"
 document.getElementById("gr").appendChild(title)
 

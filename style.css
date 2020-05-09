@@ -124,6 +124,11 @@ border-radius: 5px;
 
 }
 
+.borderWound{
+  border-radius: 25px;
+  background-color: yellow;
+}
+
 
 [nav-content] {
   display: none;
