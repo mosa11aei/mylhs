@@ -145,7 +145,7 @@ border-radius: 5px;
   background-color: #b2f2ff;
         outline: none;
         right: 0px;
-        z-index: 900000;
+        z-index: 600000;
 }
 .bottomNav.fill > [nav-id] {
   flex-grow: 1;
