@@ -204,6 +204,8 @@ border-radius: 5px;
   background-color: #b2f2ff;
         outline: none;
         right: 0px;
+        border-radius: 25px;
+
 }
 .bottomNavA.fill > [nav-id] {
   flex-grow: 1;
@@ -250,7 +252,7 @@ border-radius: 5px;
 
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 Primary style
 
@@ -279,7 +281,7 @@ h1, h2 {
   font-weight: bold;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 Modules - reusable parts of our design
 
@@ -299,9 +301,9 @@ z-index: 1;
   clear: both;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
-Main components 
+Main components
 
 -------------------------------- */
 header {
@@ -946,4 +948,3 @@ z-index: 90;
     align-items: center;
     text-align: center;
 }
-
