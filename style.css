@@ -17,7 +17,7 @@
         visibility: hidden;
         transform: scale(1.1);
         transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
-     z-index: 100000000000;
+     z-index: 700000;
     }
     .modal-content {
         position: absolute;
@@ -28,7 +28,7 @@
         padding: 1rem 1.5rem;
         width: 24rem;
         border-radius: 0.5rem;
-             z-index:100000000;
+             z-index:700000;
 
     }
     .close-button {
@@ -48,7 +48,7 @@
         visibility: visible;
         transform: scale(1.0);
         transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
-             z-index:1000000000000;
+             z-index:700000;
 
     }
 
@@ -139,7 +139,7 @@ border-radius: 5px;
   background-color: #b2f2ff;
         outline: none;
         right: 0px;
-        z-index: 1000;
+        z-index: 900000;
 }
 .bottomNav.fill > [nav-id] {
   flex-grow: 1;
