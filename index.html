@@ -1,15 +1,268 @@
+<!DOCTYPE html>
 <html>
-  <body>
-    <form name="contact" netlify>
-  <p>
-    <label>Name <input type="text" name="name" /></label>
-  </p>
-  <p>
-    <label>Email <input type="email" name="email" /></label>
-  </p>
-  <p>
-    <button type="submit">Send</button>
-  </p>
-</form>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="manifest" href="manifest.json">
+	</link>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="blue">
+	<meta name="apple-mobile-web-app-title" content="With Manifest">
+	<link rel="apple-touch-icon" href="/images/c8e34134-a187-45c3-0aa1-67ab0eaf1082.webPlatform.png" sizes="152x152">
+  	<link href="style.css" rel="stylesheet" type="text/css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+	</script>
+	<script src="sw.js">
+	</script>
+	<script src="news.js">
+	</script>
+	</script>
+	<title>MyLHS</title>
+	<script>
+		if(window.matchMedia('(display-mode: standalone)').matches) {
+		if (localStorage.getItem("name")===null){
+  var name = prompt("Welcome to the MyLHS app. What's your name?", "")
+  localStorage.setItem("name", name)
+}
+		if (localStorage.getItem("beta")===null){
+  var beta = prompt(`Welcome to the MyLHS app. We are right now in the Beta testing phase. To get the Beta key, go to alimosallaei.tech and find the Get a Beta Key button.`, "")
+  if(beta === null || beta == ""){
+    localStorage.setItem("beta", "1")
+  } else {
+  localStorage.setItem("beta", beta)
+  }
+}
+if(localStorage.getItem("beta") != "7ugB3hYa"){
+  localStorage.removeItem("beta")
+  window.location.reload();
+}
+}
+	</script>
+	<script src="script.js">
+	</script>
+</head>
+
+<body>
+	<div id="full">
+		<script src="https://cdn.jsdelivr.net/npm/matericious@0.10.1/dist/js/matericious.min.js">
+
+		</script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-icons@0.3.1/iconfont/material-icons.min.css">
+		<p id="local"></p>
+		<div id="gr" nav-content="1" class="active">
+			<script src="grade.js">
+
+			</script>
+		</div>
+
+		<div nav-content="2">
+			<h1 style="font-size:35px;">LHS News</h1>
+			<section id="cd-timeline" class="cd-container">
+
+				<div class="cd-timeline-block">
+					<div class="cd-timeline-img cd-movie">
+					</div> <!-- cd-timeline-img -->
+
+					<div class="cd-timeline-content">
+						<h2>Quick Glitch Update</h2>
+						<p>Very quick update on a small glitch that showed news on the GPA page. All fixed. Sorry 'bout that!</p>
+						<a href="#" class="cd-read-more">For All</a>
+						<span class="cd-date">Apr 20</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+				<div class="cd-timeline-block">
+					<div class="cd-timeline-img cd-movie">
+					</div> <!-- cd-timeline-img -->
+
+					<div class="cd-timeline-content">
+						<h2>Update for Beta Testers</h2>
+						<p>Just a quick update for all Beta testers: I have decided that all Fridays will be an "update" day. The app will shut down each Friday for upkeep and implementing new updates. Thanks!</p>
+						<a href="#" class="cd-read-more">For All</a>
+						<span class="cd-date">Apr 19</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+              				<div class="cd-timeline-block">
+					<div class="cd-timeline-img cd-movie">
+					</div> <!-- cd-timeline-img -->
+
+					<div class="cd-timeline-content">
+						<h2>Welcome, Beta Testers!</h2>
+						<p>Hi there, Beta testers! Thank you for testing this app out. If you have any complaints, feature requests, bugs, etc... report them to amosallaei19@gmail.com. If you think that the app hasn't updated, click the UPDATE below to manually update the app. Thanks!</p>
+						<a href="https://lhs--alimosallaei1.repl.co" class="cd-read-more">UPDATE</a>
+						<span class="cd-date">Apr 18</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+              				<div class="cd-timeline-block">
+					<div class="cd-timeline-img cd-picture">
+					</div> <!-- cd-timeline-img -->
+
+					<div class="cd-timeline-content">
+						<h2>Parent Site</h2>
+						<p>MyLHS now has a parent site (technically the dev's site) however updates for the app will be posted there periodically, including beta keys and info about the app. click the "link" button to access the site. (Updates section is at the bottom of the page)</p>
+						<a href="http://alimosallaei.epizy.com" class="cd-read-more">Link</a>
+						<span class="cd-date">Apr 18</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+              				<div class="cd-timeline-block">
+					<div class="cd-timeline-img cd-picture">
+					</div> <!-- cd-timeline-img -->
+
+					<div class="cd-timeline-content">
+						<h2>Hello, World!</h2>
+						<p>Welcome to the first news post of the MyLHS app! Here, periodic posts will be made regarding general LHS news. Submitting
+							news is not available at this time. Questions? <a href="mailto:amosallaei19@gmail.com">amosallaei19@gmail.com</a>.
+							Thanks!</p>
+						<a href="#0" class="cd-read-more">For All</a>
+						<span class="cd-date">Mar 19</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+	</section> <!-- cd-timeline -->		</div>
+
+<div nav-content="3" id = "op">
+	<h1 style="font-size:35px;">Homework</h1>
+		<div id="hwo" style="margin-top:120px;">
+    <h1>Add Homework</h1>
+    <hr>
+    </div>
+  <div id="classe" style="margin-top:120px;">
+    <h1>View Calendar</h1>
+        <p>Selecting a day shows the homework due that day at the bottom of the calendar.</p>
+    <!-- <button onclick='download_file("my_file.js", dynamic_text())'>Download</button> -->
+
+
+       <div class="container">
+        <div class="calendar-assets">
+            <h1 id="currentDate"></h1>
+            <!-- <div class="field">
+                <label for="date">Choose a date:</label>
+                <form class="form-input" id="date-search" onsubmit="return setDate(this)">
+                    <input type="date" class="text-field" name="date" id="date" required>
+                    <button type="submit" class="btn btn-small" title="Search"><i class="fas fa-search"></i></button>
+                </form>
+            </div> -->
+            <div class="day-assets">
+                <button class="btn" onclick="prevDay()" title="Yesterday"><i class="fas fa-chevron-left"></i> </button>
+                <button class="btn" onclick="resetDate()" title="Today"><i class="fas fa-calendar-day"></i> Today</button>
+                <button class="btn" onclick="nextDay()" title="Tomorrow"><i class="fas fa-chevron-right"></i> </button>
+            </div>
+        </div>
+        <div class="calendar" id="table">
+            <div class="header">
+                <!-- Aqui é onde ficará o h1 com o mês e o ano -->
+                <div class="month" id="month-header">
+
+                </div>
+                <div class="buttons">
+                    <button class="icon" onclick="prevMonth()" title="Mês anterior"><i class="fas fa-chevron-left"></i></button>
+                    <button class="icon" onclick="nextMonth()" title="Próximo mês"><i class="fas fa-chevron-right "></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+		<nav class="bottomNavA z-1 text-blue">
+			<button id = "main" class="wave" nav-id="1" style="outline:none;" onclick="hideCl()">
+    <i class="material-icons">add_circle_outline</i>
+    <span>View/Add HW</span>
+  </button>
+  <button class="ripple" nav-id="2" style="outline:none;" onclick="hideCa()">
+    <i class="material-icons">event_note</i>
+    <span>Calendar</span>
+  </button>
+</nav>
+		</div>
+
+    <script src="https://kit.fontawesome.com/812e771e48.js" crossorigin="anonymous"></script>
+		<nav class="bottomNav z-1 text-blue">
+			<button id = "main" class="wave active" nav-id="1" style="outline:none;">
+    <i class="material-icons">done_all</i>
+    <span>GPA Calc</span>
+  </button>
+    <button class="wave active" id = "new" nav-id="3" style="outline:none;">
+    <i class="material-icons">edit</i>
+    <span>Homework</span>
+  </button>
+  <button class="ripple active" nav-id="2" style="outline:none;">
+    <i class="material-icons">announcement</i>
+    <span>News</span>
+  </button>
+</nav>
+</div>
+<div id="hello">
+<h1 style="font-size:35px;">Welcome to MyLHS!</h1>
+<h3>This app is mainly designed to calculate your GPA and record your homework, but also has a news portion for updates about LHS.</h3>
+<h3>The GPA Calculator can:</h3>
+<ul>
+  <li>Save your classes and grades so you don't have to re-enter everything when you want to calculate the GPA</li>
+  <li>Give you both your weighted and unweighted GPAs</li>
+  <li>Based around LHS's grading policy</li> 
+</ul>
+<h3>Homework tab can:</h3>
+<ul>
+  <li>Save homework for you (duh)</li>
+  <li>Show you homework on a calendar</li>
+</ul>
+<h3>So what are you waiting for? Let's get started!</h3>
+<button onclick="first()" id = "addC">Let's Go!</button>
+  </div>
+  <div id="install">
+<h1>MyLHS is an Installable App</h1>
+<h3>To install for iOS, open this page (<a href="http://mylhs.ml">mylhs.ml</a>) in Safari; click the "Share" icon and then "Add to Homescreen".</h3> <h3>For Android, open this page (<a href="http://mylhs.ml">mylhs.ml</a>) in Chrome; click on the 3 dots in the top right, then click "Add to Homescreen".</h3><h3>Note that the first time opening the app might be slow due to initial setup</h3>
+    </div>
+    <div id="web">
+<h1>MyLHS is a phone app</h1>
+<h3>Open this page in either Safari (iOS) or Chrome (Android)</h3>
+      </div>
+<script>
+		var isMobile = false
+    var full = document.getElementById("full")
+    var isH = document.getElementById("hello")
+    var isW = document.getElementById("web")
+    isW.style.display = "block"
+        hello.style.display = "none"
+    full.style.display = "none"
+
+    function first(){
+      localStorage.setItem("first", "1")
+      window.location.reload()
+    }
+    var inst = document.getElementById("install")
+    inst.style.display = "none"
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+ inst.style.display = "block"
+ isW.style.display = "none"
+}
+      if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+          .then(function() {
+                console.log('Service Worker Registered');
+          });
+      }
+      if(window.matchMedia('(display-mode: standalone)').matches) {
+        isMobile = true
+    hello.style.display = "block"
+    full.style.display = "none"
+    inst.style.display = "none"
+     isW.style.display = "none"
+
+      if (localStorage.getItem("first") == "1" ){
+      full.style.display = "block"
+      hello.style.display = "none"
+          inst.style.display = "none"
+           isW.style.display = "none"
+
+
+      }
+}
+
+	</script>
+
+  <script src="about.js"></script>
   </body>
 </html>

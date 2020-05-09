@@ -1,0 +1,115 @@
+{
+    "dir": "ltr",
+    "lang": "en",
+    "name": "MyLHS",
+    "scope": "/",
+    "display": "standalone",
+    "start_url": "/",
+    "short_name": "MyLHS",
+    "theme_color": "#b2f2ff",
+    "description": "Your personal app for LHS",
+    "orientation": "portrait",
+    "background_color": "#b2f2ff",
+    "related_applications": [],
+    "prefer_related_applications": false,
+
+    "icons": [
+        {
+            "src": "/images/eb114488-7d45-3c1e-3c22-453d5eb30248.webPlatform.png",
+            "sizes": "44x44",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/be72569a-0969-2d7a-14be-d7615bb01cee.webPlatform.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/a7c4a56f-e98a-7c7b-1770-9cf8fd3b4235.webPlatform.png",
+            "sizes": "1240x600",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/594b5b60-30d1-28b4-21c2-431400528768.webPlatform.png",
+            "sizes": "300x300",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/99adeaf8-3bdb-dadb-5034-95ad71fb31fd.webPlatform.png",
+            "sizes": "150x150",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/c8683768-7059-26dc-94d1-c89cf873183d.webPlatform.png",
+            "sizes": "88x88",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/05c4ef73-f5fb-01bd-78cf-1b6a76efa692.webPlatform.png",
+            "sizes": "24x24",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/1c07bf10-311f-c6fc-7e2b-dd442ed23a73.webPlatform.png",
+            "sizes": "50x50",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/d76b16ef-e2c8-10ee-7e5f-f4f473759640.webPlatform.png",
+            "sizes": "620x300",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/9c656a72-426f-b61a-7d6c-bc30b0b5e7d8.webPlatform.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/ec80227b-2c58-00a8-28d6-623673323a1b.webPlatform.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/fd1d683e-4b9d-7448-c51f-117723e72f4c.webPlatform.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/ae50872f-75de-b298-10f5-363815d328d2.webPlatform.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/44325ebb-6c69-04cc-cd37-8c9b21c59a6b.webPlatform.png",
+            "sizes": "36x36",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/8aba7764-4d29-846a-97fb-a8a96f07d6ac.webPlatform.png",
+            "sizes": "1024x1024",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/551bb0b5-e2e0-f5dd-60d9-5f579f902c2d.webPlatform.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/c8e34134-a187-45c3-0aa1-67ab0eaf1082.webPlatform.png",
+            "sizes": "152x152",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/49af18fd-0f5b-7512-1336-9990501c7989.webPlatform.png",
+            "sizes": "120x120",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/8c69d488-bb84-7fc8-7571-b6fe35f37852.webPlatform.png",
+            "sizes": "76x76",
+            "type": "image/png"
+        }
+    ],
+    "url": "https://lhs--alimosallaei1.repl.co",
+    "screenshots": []
+}
