@@ -66,13 +66,13 @@ if(localStorage.getItem("beta") != "7ugB3hYa"){
     <span class="close">&times;</span>
 		<form name="news" method="POST" data-netlify="true">
 		  <p>
-		    <label>Your Full Name: <br><input type="text" name="name" /></label>
+		    <label>Your Full Name: <br><input type="text" name="name" required /></label>
 		  </p>
 		  <p>
-		    <label>Your Email: <br><input type="email" name="email" /></label>
+		    <label>Your Email: <br><input type="email" name="email" required/></label>
 		  </p>
 		  <p>
-		    <label>News: <br><textarea name="news" rows="12" cols:"28"></textarea></label>
+		    <label>News: <br><textarea name="news" rows="12" cols:"28" required></textarea></label>
 		  </p>
 		  <p>
 		    <button type="submit" id="addC">Send</button>
