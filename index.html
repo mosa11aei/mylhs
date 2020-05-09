@@ -273,6 +273,11 @@ var modal = document.querySelector(".modal");
 
     function toggleModal() {
         modal.classList.toggle("show-modal");
+				$("body").toggle(function () {
+    			$("body").css('overflow', 'hidden');
+					}, function () {
+    				$("body").css('overflow', 'auto');
+					});
     }
 
     function windowOnClick(event) {
