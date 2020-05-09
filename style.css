@@ -126,7 +126,8 @@ border-radius: 5px;
 
 .borderWound{
   border-radius: 25px;
-  background-color: gray;
+  background-color: #e6e6e6;
+  text-align: center;
 }
 
 
