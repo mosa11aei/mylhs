@@ -281,12 +281,6 @@ var modal = document.querySelector(".modal");
         }
     }
 
-		if(modal.is(":visible")){
-			$('body').css('overflow', 'hidden');
-		} else {
-			$('body').css('overflow', 'auto');
-		}
-
     trigger.addEventListener("click", toggleModal);
     closeButton.addEventListener("click", toggleModal);
     window.addEventListener("click", windowOnClick);
