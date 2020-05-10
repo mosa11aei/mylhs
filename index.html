@@ -165,48 +165,60 @@ if(localStorage.getItem("beta") != "7ugB3hYa"){
 
 	</section> <!-- cd-timeline -->		</div>
 
-<div nav-content="3" id = "op">
-	<h1 style="font-size:35px;" class="borderWound">Homework</h1>
-		<div id="hwo" style="margin-top:120px;">
-    <h1>Add Homework</h1>
-    <hr>
-    </div>
-  <div id="classe" style="margin-top:120px;">
-    <h1>View Calendar</h1>
-        <p>Selecting a day shows the homework due that day at the bottom of the calendar.</p>
-    <!-- <button onclick='download_file("my_file.js", dynamic_text())'>Download</button> -->
+	<div nav-content="3" id = "op">
+		<h1 style="font-size:35px;">Homework</h1>
+			<div id="hwo" style="margin-top:120px;">
+	    <h1>Add Homework</h1>
+	    <hr>
+	    </div>
+	            		<div id="sett" style="margin-top:120px;">
+	    <h1>Settings</h1>
+	    <hr>
+	    <h2>Copy your data</h2>
+	    <p>You have the ability to copy your data from this app, so as to save it in case you want to switch to the test server, or to another device. Just press the button below to copy it to your clipboard.</p>
+	    <button id="addC" onclick="copyData()">Copy</button>
+	    <p id="copied" style="display:none;">Data copied!</p>
+	    <h2>Paste your data</h2>
+	    <p>Paste the data you copied from before here and press RUN to set up the app!</p>
+	    <textarea id="useData" rows="4" cols="26"></textarea><br /><br>
+	    <button id="addC" onclick="useData()">RUN</button>
+	    </div>
+	  <div id="classe" style="margin-top:120px;">
+	    <h1>View Calendar</h1>
+	        <p>Selecting a day shows the homework due that day at the bottom of the calendar.</p>
+	    <!-- <button onclick='download_file("my_file.js", dynamic_text())'>Download</button> -->
 
 
-       <div class="container">
-        <div class="calendar-assets">
-            <h1 id="currentDate"></h1>
-            <!-- <div class="field">
-                <label for="date">Choose a date:</label>
-                <form class="form-input" id="date-search" onsubmit="return setDate(this)">
-                    <input type="date" class="text-field" name="date" id="date" required>
-                    <button type="submit" class="btn btn-small" title="Search"><i class="fas fa-search"></i></button>
-                </form>
-            </div> -->
-            <div class="day-assets">
-                <button class="btn" onclick="prevDay()" title="Yesterday"><i class="fas fa-chevron-left"></i> </button>
-                <button class="btn" onclick="resetDate()" title="Today"><i class="fas fa-calendar-day"></i> Today</button>
-                <button class="btn" onclick="nextDay()" title="Tomorrow"><i class="fas fa-chevron-right"></i> </button>
-            </div>
-        </div>
-        <div class="calendar" id="table">
-            <div class="header">
-                <!-- Aqui é onde ficará o h1 com o mês e o ano -->
-                <div class="month" id="month-header">
+	       <div class="container">
+	        <div class="calendar-assets">
+	            <h1 id="currentDate"></h1>
+	            <!-- <div class="field">
+	                <label for="date">Choose a date:</label>
+	                <form class="form-input" id="date-search" onsubmit="return setDate(this)">
+	                    <input type="date" class="text-field" name="date" id="date" required>
+	                    <button type="submit" class="btn btn-small" title="Search"><i class="fas fa-search"></i></button>
+	                </form>
+	            </div> -->
+	            <div class="day-assets">
+	                <button class="btn" onclick="prevDay()" title="Yesterday"><i class="fas fa-chevron-left"></i> </button>
+	                <button class="btn" onclick="resetDate()" title="Today"><i class="fas fa-calendar-day"></i> Today</button>
+	                <button class="btn" onclick="nextDay()" title="Tomorrow"><i class="fas fa-chevron-right"></i> </button>
+	            </div>
+	        </div>
+	        <div class="calendar" id="table">
+	            <div class="header">
+	                <!-- Aqui é onde ficará o h1 com o mês e o ano -->
+	                <div class="month" id="month-header">
 
-                </div>
-                <div class="buttons">
-                    <button class="icon" onclick="prevMonth()" title="Mês anterior"><i class="fas fa-chevron-left"></i></button>
-                    <button class="icon" onclick="nextMonth()" title="Próximo mês"><i class="fas fa-chevron-right "></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
+	                </div>
+	                <div class="buttons">
+	                    <button class="icon" onclick="prevMonth()" title="Mês anterior"><i class="fas fa-chevron-left"></i></button>
+	                    <button class="icon" onclick="nextMonth()" title="Próximo mês"><i class="fas fa-chevron-right "></i></button>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	    </div>
 		<nav class="bottomNavA z-1 text-blue">
 			<button id = "main" class="wave" nav-id="1" style="outline:none;" onclick="hideCl()">
     <i class="material-icons">add_circle_outline</i>

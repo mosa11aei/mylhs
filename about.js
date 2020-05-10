@@ -3,26 +3,82 @@
 
     var ics=function(e,t){"use strict";{if(!(navigator.userAgent.indexOf("MSIE")>-1&&-1==navigator.userAgent.indexOf("MSIE 10"))){void 0===e&&(e="default"),void 0===t&&(t="Calendar");var r=-1!==navigator.appVersion.indexOf("Win")?"\r\n":"\n",n=[],i=["BEGIN:VCALENDAR","PRODID:"+t,"VERSION:2.0"].join(r),o=r+"END:VCALENDAR",a=["SU","MO","TU","WE","TH","FR","SA"];return{events:function(){return n},calendar:function(){return i+r+n.join(r)+o},addEvent:function(t,i,o,l,u,s){if(void 0===t||void 0===i||void 0===o||void 0===l||void 0===u)return!1;if(s&&!s.rrule){if("YEARLY"!==s.freq&&"MONTHLY"!==s.freq&&"WEEKLY"!==s.freq&&"DAILY"!==s.freq)throw"Recurrence rrule frequency must be provided and be one of the following: 'YEARLY', 'MONTHLY', 'WEEKLY', or 'DAILY'";if(s.until&&isNaN(Date.parse(s.until)))throw"Recurrence rrule 'until' must be a valid date string";if(s.interval&&isNaN(parseInt(s.interval)))throw"Recurrence rrule 'interval' must be an integer";if(s.count&&isNaN(parseInt(s.count)))throw"Recurrence rrule 'count' must be an integer";if(void 0!==s.byday){if("[object Array]"!==Object.prototype.toString.call(s.byday))throw"Recurrence rrule 'byday' must be an array";if(s.byday.length>7)throw"Recurrence rrule 'byday' array must not be longer than the 7 days in a week";s.byday=s.byday.filter(function(e,t){return s.byday.indexOf(e)==t});for(var c in s.byday)if(a.indexOf(s.byday[c])<0)throw"Recurrence rrule 'byday' values must include only the following: 'SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'"}}var g=new Date(l),d=new Date(u),f=new Date,S=("0000"+g.getFullYear().toString()).slice(-4),E=("00"+(g.getMonth()+1).toString()).slice(-2),v=("00"+g.getDate().toString()).slice(-2),y=("00"+g.getHours().toString()).slice(-2),A=("00"+g.getMinutes().toString()).slice(-2),T=("00"+g.getSeconds().toString()).slice(-2),b=("0000"+d.getFullYear().toString()).slice(-4),D=("00"+(d.getMonth()+1).toString()).slice(-2),N=("00"+d.getDate().toString()).slice(-2),h=("00"+d.getHours().toString()).slice(-2),I=("00"+d.getMinutes().toString()).slice(-2),R=("00"+d.getMinutes().toString()).slice(-2),M=("0000"+f.getFullYear().toString()).slice(-4),w=("00"+(f.getMonth()+1).toString()).slice(-2),L=("00"+f.getDate().toString()).slice(-2),O=("00"+f.getHours().toString()).slice(-2),p=("00"+f.getMinutes().toString()).slice(-2),Y=("00"+f.getMinutes().toString()).slice(-2),U="",V="";y+A+T+h+I+R!=0&&(U="T"+y+A+T,V="T"+h+I+R);var B,C=S+E+v+U,j=b+D+N+V,m=M+w+L+("T"+O+p+Y);if(s)if(s.rrule)B=s.rrule;else{if(B="rrule:FREQ="+s.freq,s.until){var x=new Date(Date.parse(s.until)).toISOString();B+=";UNTIL="+x.substring(0,x.length-13).replace(/[-]/g,"")+"000000Z"}s.interval&&(B+=";INTERVAL="+s.interval),s.count&&(B+=";COUNT="+s.count),s.byday&&s.byday.length>0&&(B+=";BYDAY="+s.byday.join(","))}(new Date).toISOString();var H=["BEGIN:VEVENT","UID:"+n.length+"@"+e,"CLASS:PUBLIC","DESCRIPTION:"+i,"DTSTAMP;VALUE=DATE-TIME:"+m,"DTSTART;VALUE=DATE-TIME:"+C,"DTEND;VALUE=DATE-TIME:"+j,"LOCATION:"+o,"SUMMARY;LANGUAGE=en-us:"+t,"TRANSP:TRANSPARENT","END:VEVENT"];return B&&H.splice(4,0,B),H=H.join(r),n.push(H),H},download:function(e,t){if(n.length<1)return!1;t=void 0!==t?t:".ics",e=void 0!==e?e:"calendar";var a,l=i+r+n.join(r)+o;if(-1===navigator.userAgent.indexOf("MSIE 10"))a=new Blob([l]);else{var u=new BlobBuilder;u.append(l),a=u.getBlob("text/x-vCalendar;charset="+document.characterSet)}return saveAs(a,e+t),l},build:function(){return!(n.length<1)&&i+r+n.join(r)+o}}}console.log("Unsupported Browser")}};
 
-var hw = document.querySelector("#op #hwo")
-var mycal = document.querySelector("#op #classe")
-var isClass = document.querySelector("#op #hwo")
-var isCal = document.querySelector("#op #classe")
-isClass.style.display = "block"
-isCal.style.display = "none"
+    var hw = document.querySelector("#op #hwo")
+    var mycal = document.querySelector("#op #classe")
+    var isClass = document.querySelector("#op #hwo")
+    var isCal = document.querySelector("#op #classe")
+    var sett = document.querySelector("#op #sett")
+    isClass.style.display = "block"
+    isCal.style.display = "none"
+    sett.style.display = "none"
 
-function hideCl() {
-  var isClass = document.querySelector("#op #hwo")
-  var isCal = document.querySelector("#op #classe")
-  isClass.style.display = "block"
-  isCal.style.display = "none"
-}
-function hideCa() {
-  var isClass = document.querySelector("#op #hwo")
-  var isCal = document.querySelector("#op #classe")
-  isClass.style.display = "none"
-  isCal.style.display = "block"
-}
+    function hideCl() {
+      var isClass = document.querySelector("#op #hwo")
+      var isCal = document.querySelector("#op #classe")
+      isClass.style.display = "block"
+      isCal.style.display = "none"
+      sett.style.display = "none"
+    }
+    function hideCa() {
+      var isClass = document.querySelector("#op #hwo")
+      var isCal = document.querySelector("#op #classe")
+      isClass.style.display = "none"
+      isCal.style.display = "block"
+      sett.style.display = "none"
 
+    }
+
+    function hideML(){
+        isClass.style.display = "none"
+      isCal.style.display = "none"
+      sett.style.display = "block"
+
+    }
+
+    function copyData(){
+      var copydata = "";
+      for (i = 0; i < localStorage.length; i++){
+        var keyName = localStorage.key(i)
+        var item = localStorage.getItem(keyName)
+        var toIn = keyName + " ++//++ " + item + " --//-- "
+        copydata = copydata + toIn
+      }
+        var dummy = document.createElement("textarea");
+        // to avoid breaking orgain page when copying more words
+        // cant copy when adding below this code
+        // dummy.style.display = 'none'
+        document.body.appendChild(dummy);
+        //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea". – Eduard
+        dummy.value = copydata;
+        dummy.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummy);
+        var textC= document.getElementById("copied")
+        textC.style.display = "block"
+        setTimeout(() => {  textC.style.display="none"; }, 2000);
+
+    }
+
+    function useData(){
+      var textT = document.getElementById('useData').value;
+      var semiSplit = textT.split(" --//-- ")
+      console.log(semiSplit.length)
+      var fullSplit = [];
+      for(i = 0; i < semiSplit.length; i++){
+        var newSplit = semiSplit[i].split(" ++//++ ")
+      fullSplit.push(newSplit[0])
+      fullSplit.push(newSplit[1])
+      }
+      for(i = 0; i < fullSplit.length; i++){
+        if(i%2 ==0){
+        var myKey = fullSplit[i]
+        var myData = fullSplit[i+1]
+        localStorage.setItem(myKey, myData)
+        console.log(i)
+        }
+      }
+      window.location.reload()
+    }
 function showMenuA(i) {
   var spanNameB = "#spanC-" + i
   var infoHelp = "#help" + i
