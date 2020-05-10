@@ -40,7 +40,11 @@
       for (i = 0; i < localStorage.length; i++){
         var keyName = localStorage.key(i)
         var item = localStorage.getItem(keyName)
+        if(i + 1 != localStorage.length){
         var toIn = keyName + " ++//++ " + item + " --//-- "
+        } else {
+              var toIn = keyName + " ++//++ " + item
+        }
         copydata = copydata + toIn
       }
         var dummy = document.createElement("textarea");
@@ -57,6 +61,64 @@
         textC.style.display = "block"
         setTimeout(() => {  textC.style.display="none"; }, 2000);
 
+    }
+
+    function copyClasses(){
+      var copydata = "";
+      for (i = 0; i < localStorage.length; i++){
+        var keyName = localStorage.key(i)
+        if(keyName.indexOf("-") === -1){
+        var item = localStorage.getItem(keyName)
+        if(i + 1 != localStorage.length){
+        var toIn = keyName + " ++//++ " + item + " --//-- "
+        } else {
+              var toIn = keyName + " ++//++ " + item
+        }
+        copydata = copydata + toIn
+      }
+      }
+        var dummy = document.createElement("textarea");
+        // to avoid breaking orgain page when copying more words
+        // cant copy when adding below this code
+        // dummy.style.display = 'none'
+        document.body.appendChild(dummy);
+        //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea". – Eduard
+        dummy.value = copydata;
+        dummy.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummy);
+        var textC= document.getElementById("copied")
+        textC.style.display = "block"
+        setTimeout(() => {  textC.style.display="none"; }, 2000);
+    }
+
+    function copyHomework(){
+      var copydata = "";
+      for (i = 0; i < localStorage.length; i++){
+        var keyName = localStorage.key(i)
+        if(keyName.includes("-") == true){
+        var item = localStorage.getItem(keyName)
+        if(i + 1 != localStorage.length){
+        var toIn = keyName + " ++//++ " + item + " --//-- "
+        } else {
+              var toIn = keyName + " ++//++ " + item
+        }
+        copydata = copydata + toIn
+      }
+      }
+        var dummy = document.createElement("textarea");
+        // to avoid breaking orgain page when copying more words
+        // cant copy when adding below this code
+        // dummy.style.display = 'none'
+        document.body.appendChild(dummy);
+        //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea". – Eduard
+        dummy.value = copydata;
+        dummy.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummy);
+        var textC= document.getElementById("copied")
+        textC.style.display = "block"
+        setTimeout(() => {  textC.style.display="none"; }, 2000);
     }
 
     function useData(){
