@@ -1,146 +1,137 @@
-    /*! ics.js Wed Aug 20 2014 17:23:02 */
-    var saveAs=saveAs||function(e){"use strict";if(typeof e==="undefined"||typeof navigator!=="undefined"&&/MSIE [1-9]\./.test(navigator.userAgent)){return}var t=e.document,n=function(){return e.URL||e.webkitURL||e},r=t.createElementNS("http://www.w3.org/1999/xhtml","a"),o="download"in r,a=function(e){var t=new MouseEvent("click");e.dispatchEvent(t)},i=/constructor/i.test(e.HTMLElement)||e.safari,f=/CriOS\/[\d]+/.test(navigator.userAgent),u=function(t){(e.setImmediate||e.setTimeout)(function(){throw t},0)},s="application/octet-stream",d=1e3*40,c=function(e){var t=function(){if(typeof e==="string"){n().revokeObjectURL(e)}else{e.remove()}};setTimeout(t,d)},l=function(e,t,n){t=[].concat(t);var r=t.length;while(r--){var o=e["on"+t[r]];if(typeof o==="function"){try{o.call(e,n||e)}catch(a){u(a)}}}},p=function(e){if(/^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(e.type)){return new Blob([String.fromCharCode(65279),e],{type:e.type})}return e},v=function(t,u,d){if(!d){t=p(t)}var v=this,w=t.type,m=w===s,y,h=function(){l(v,"writestart progress write writeend".split(" "))},S=function(){if((f||m&&i)&&e.FileReader){var r=new FileReader;r.onloadend=function(){var t=f?r.result:r.result.replace(/^data:[^;]*;/,"data:attachment/file;");var n=e.open(t,"_blank");if(!n)e.location.href=t;t=undefined;v.readyState=v.DONE;h()};r.readAsDataURL(t);v.readyState=v.INIT;return}if(!y){y=n().createObjectURL(t)}if(m){e.location.href=y}else{var o=e.open(y,"_blank");if(!o){e.location.href=y}}v.readyState=v.DONE;h();c(y)};v.readyState=v.INIT;if(o){y=n().createObjectURL(t);setTimeout(function(){r.href=y;r.download=u;a(r);h();c(y);v.readyState=v.DONE});return}S()},w=v.prototype,m=function(e,t,n){return new v(e,t||e.name||"download",n)};if(typeof navigator!=="undefined"&&navigator.msSaveOrOpenBlob){return function(e,t,n){t=t||e.name||"download";if(!n){e=p(e)}return navigator.msSaveOrOpenBlob(e,t)}}w.abort=function(){};w.readyState=w.INIT=0;w.WRITING=1;w.DONE=2;w.error=w.onwritestart=w.onprogress=w.onwrite=w.onabort=w.onerror=w.onwriteend=null;return m}(typeof self!=="undefined"&&self||typeof window!=="undefined"&&window||this.content);if(typeof module!=="undefined"&&module.exports){module.exports.saveAs=saveAs}else if(typeof define!=="undefined"&&define!==null&&define.amd!==null){define("FileSaver.js",function(){return saveAs})}
-
-    var ics=function(e,t){"use strict";{if(!(navigator.userAgent.indexOf("MSIE")>-1&&-1==navigator.userAgent.indexOf("MSIE 10"))){void 0===e&&(e="default"),void 0===t&&(t="Calendar");var r=-1!==navigator.appVersion.indexOf("Win")?"\r\n":"\n",n=[],i=["BEGIN:VCALENDAR","PRODID:"+t,"VERSION:2.0"].join(r),o=r+"END:VCALENDAR",a=["SU","MO","TU","WE","TH","FR","SA"];return{events:function(){return n},calendar:function(){return i+r+n.join(r)+o},addEvent:function(t,i,o,l,u,s){if(void 0===t||void 0===i||void 0===o||void 0===l||void 0===u)return!1;if(s&&!s.rrule){if("YEARLY"!==s.freq&&"MONTHLY"!==s.freq&&"WEEKLY"!==s.freq&&"DAILY"!==s.freq)throw"Recurrence rrule frequency must be provided and be one of the following: 'YEARLY', 'MONTHLY', 'WEEKLY', or 'DAILY'";if(s.until&&isNaN(Date.parse(s.until)))throw"Recurrence rrule 'until' must be a valid date string";if(s.interval&&isNaN(parseInt(s.interval)))throw"Recurrence rrule 'interval' must be an integer";if(s.count&&isNaN(parseInt(s.count)))throw"Recurrence rrule 'count' must be an integer";if(void 0!==s.byday){if("[object Array]"!==Object.prototype.toString.call(s.byday))throw"Recurrence rrule 'byday' must be an array";if(s.byday.length>7)throw"Recurrence rrule 'byday' array must not be longer than the 7 days in a week";s.byday=s.byday.filter(function(e,t){return s.byday.indexOf(e)==t});for(var c in s.byday)if(a.indexOf(s.byday[c])<0)throw"Recurrence rrule 'byday' values must include only the following: 'SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'"}}var g=new Date(l),d=new Date(u),f=new Date,S=("0000"+g.getFullYear().toString()).slice(-4),E=("00"+(g.getMonth()+1).toString()).slice(-2),v=("00"+g.getDate().toString()).slice(-2),y=("00"+g.getHours().toString()).slice(-2),A=("00"+g.getMinutes().toString()).slice(-2),T=("00"+g.getSeconds().toString()).slice(-2),b=("0000"+d.getFullYear().toString()).slice(-4),D=("00"+(d.getMonth()+1).toString()).slice(-2),N=("00"+d.getDate().toString()).slice(-2),h=("00"+d.getHours().toString()).slice(-2),I=("00"+d.getMinutes().toString()).slice(-2),R=("00"+d.getMinutes().toString()).slice(-2),M=("0000"+f.getFullYear().toString()).slice(-4),w=("00"+(f.getMonth()+1).toString()).slice(-2),L=("00"+f.getDate().toString()).slice(-2),O=("00"+f.getHours().toString()).slice(-2),p=("00"+f.getMinutes().toString()).slice(-2),Y=("00"+f.getMinutes().toString()).slice(-2),U="",V="";y+A+T+h+I+R!=0&&(U="T"+y+A+T,V="T"+h+I+R);var B,C=S+E+v+U,j=b+D+N+V,m=M+w+L+("T"+O+p+Y);if(s)if(s.rrule)B=s.rrule;else{if(B="rrule:FREQ="+s.freq,s.until){var x=new Date(Date.parse(s.until)).toISOString();B+=";UNTIL="+x.substring(0,x.length-13).replace(/[-]/g,"")+"000000Z"}s.interval&&(B+=";INTERVAL="+s.interval),s.count&&(B+=";COUNT="+s.count),s.byday&&s.byday.length>0&&(B+=";BYDAY="+s.byday.join(","))}(new Date).toISOString();var H=["BEGIN:VEVENT","UID:"+n.length+"@"+e,"CLASS:PUBLIC","DESCRIPTION:"+i,"DTSTAMP;VALUE=DATE-TIME:"+m,"DTSTART;VALUE=DATE-TIME:"+C,"DTEND;VALUE=DATE-TIME:"+j,"LOCATION:"+o,"SUMMARY;LANGUAGE=en-us:"+t,"TRANSP:TRANSPARENT","END:VEVENT"];return B&&H.splice(4,0,B),H=H.join(r),n.push(H),H},download:function(e,t){if(n.length<1)return!1;t=void 0!==t?t:".ics",e=void 0!==e?e:"calendar";var a,l=i+r+n.join(r)+o;if(-1===navigator.userAgent.indexOf("MSIE 10"))a=new Blob([l]);else{var u=new BlobBuilder;u.append(l),a=u.getBlob("text/x-vCalendar;charset="+document.characterSet)}return saveAs(a,e+t),l},build:function(){return!(n.length<1)&&i+r+n.join(r)+o}}}console.log("Unsupported Browser")}};
-
     var hw = document.querySelector("#op #hwo")
-    var mycal = document.querySelector("#op #classe")
-    var isClass = document.querySelector("#op #hwo")
-    var isCal = document.querySelector("#op #classe")
-    var sett = document.querySelector("#op #sett")
-    isClass.style.display = "block"
-    isCal.style.display = "none"
-    sett.style.display = "none"
+var mycal = document.querySelector("#op #classe")
+var isClass = document.querySelector("#op #hwo")
+var isCal = document.querySelector("#op #classe")
+var isAdd = document.querySelector("#op #imp")
+isClass.style.display = "none"
+isCal.style.display = "none"
+isAdd.style.display = "block"
 
-    function hideCl() {
-      var isClass = document.querySelector("#op #hwo")
-      var isCal = document.querySelector("#op #classe")
-      isClass.style.display = "block"
-      isCal.style.display = "none"
-      sett.style.display = "none"
-    }
-    function hideCa() {
-      var isClass = document.querySelector("#op #hwo")
-      var isCal = document.querySelector("#op #classe")
-      isClass.style.display = "none"
-      isCal.style.display = "block"
-      sett.style.display = "none"
+function hideCl() {
+  var isClass = document.querySelector("#op #hwo")
+  var isCal = document.querySelector("#op #classe")
+  isClass.style.display = "block"
+  isCal.style.display = "none"
+  isAdd.style.display = "none"
 
-    }
+}
+function hideCa() {
+  var isClass = document.querySelector("#op #hwo")
+  var isCal = document.querySelector("#op #classe")
+  isClass.style.display = "none"
+  isCal.style.display = "block"
+  isAdd.style.display = "none"
 
-    function hideML(){
-        isClass.style.display = "none"
-      isCal.style.display = "none"
-      sett.style.display = "block"
+  
+}
 
-    }
+function hideML(){
+    isClass.style.display = "none"
+  isCal.style.display = "none"
+  isAdd.style.display = "block"
 
-    function copyData(){
-      var copydata = "";
-      for (i = 0; i < localStorage.length; i++){
-        var keyName = localStorage.key(i)
-        var item = localStorage.getItem(keyName)
-        if(i + 1 != localStorage.length){
-        var toIn = keyName + " ++//++ " + item + " --//-- "
-        } else {
-              var toIn = keyName + " ++//++ " + item
-        }
-        copydata = copydata + toIn
+
+}
+
+   var stringDropDowninnerHTML = "<option value=''>Select Class</option>";
+            for (var i = 0; i < localStorage.length; i++) {
+              var keyName = localStorage.key(i)
+              var val = localStorage.getItem(keyName)
+              if(val.includes("isclass")===true){
+                stringDropDowninnerHTML += "<option value=" + i + ">" + keyName + "</option>";
+              }
+            }
+            document.getElementById('myList').innerHTML = stringDropDowninnerHTML;
+            var monthArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+  var seleMonth = "<option value=''>Month</option>";
+            for (var i = 1; i < 13; i++) {
+                seleMonth += "<option value=" + i + ">" + monthArr[i-1] + "</option>";
+            }
+            document.getElementById('month').innerHTML = seleMonth;
+    var seleDay = "<option value=''>Day</option>";
+            for (var i = 1; i < 32; i++) {
+                seleDay += "<option value=" + i + ">" + i + "</option>";
+            }
+            document.getElementById('day').innerHTML = seleDay;
+    var seleYear = "<option value=''>Year</option>";
+            for (var i = 2019; i < 2030; i++) {
+                seleYear += "<option value=" + i + ">" + i + "</option>";
+            }
+            document.getElementById('year').innerHTML = seleYear;
+
+function copyData(){
+  var copydata = "";
+  for (i = 0; i < localStorage.length; i++){
+    var keyName = localStorage.key(i)
+    if(keyName != "first" && keyName.includes("-") === false){
+    var item = localStorage.getItem(keyName)
+      if(item.includes("+")){
+        item = item.replace("+", "`");
       }
-        var dummy = document.createElement("textarea");
-        // to avoid breaking orgain page when copying more words
-        // cant copy when adding below this code
-        // dummy.style.display = 'none'
-        document.body.appendChild(dummy);
-        //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea". – Eduard
-        dummy.value = copydata;
-        dummy.select();
-        document.execCommand("copy");
-        document.body.removeChild(dummy);
-        var textC= document.getElementById("copied")
-        textC.style.display = "block"
-        setTimeout(() => {  textC.style.display="none"; }, 2000);
-
+    if(i + 1 != localStorage.length){
+    var toIn = keyName + " //// " + item + " --//-- "
+    } else {
+          var toIn = keyName + " //// " + item
     }
-
-    function copyClasses(){
-      var copydata = "";
-      for (i = 0; i < localStorage.length; i++){
-        var keyName = localStorage.key(i)
-        if(keyName.indexOf("-") === -1){
-        var item = localStorage.getItem(keyName)
-        if(i + 1 != localStorage.length){
-        var toIn = keyName + " ++//++ " + item + " --//-- "
-        } else {
-              var toIn = keyName + " ++//++ " + item
-        }
-        copydata = copydata + toIn
-      }
-      }
-        var dummy = document.createElement("textarea");
-        // to avoid breaking orgain page when copying more words
-        // cant copy when adding below this code
-        // dummy.style.display = 'none'
-        document.body.appendChild(dummy);
-        //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea". – Eduard
-        dummy.value = copydata;
-        dummy.select();
-        document.execCommand("copy");
-        document.body.removeChild(dummy);
-        var textC= document.getElementById("copied")
-        textC.style.display = "block"
-        setTimeout(() => {  textC.style.display="none"; }, 2000);
+    copydata = copydata + toIn
     }
+  }
+    var email = localStorage.getItem("email")
+    window.location.href="http://mosallaei-api.000webhostapp.com/save.php?email=" + email + "&data=" + copydata
 
-    function copyHomework(){
-      var copydata = "";
-      for (i = 0; i < localStorage.length; i++){
-        var keyName = localStorage.key(i)
-        if(keyName.includes("-") == true){
-        var item = localStorage.getItem(keyName)
-        if(i + 1 != localStorage.length){
-        var toIn = keyName + " ++//++ " + item + " --//-- "
-        } else {
-              var toIn = keyName + " ++//++ " + item
-        }
-        copydata = copydata + toIn
-      }
-      }
-        var dummy = document.createElement("textarea");
-        // to avoid breaking orgain page when copying more words
-        // cant copy when adding below this code
-        // dummy.style.display = 'none'
-        document.body.appendChild(dummy);
-        //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea". – Eduard
-        dummy.value = copydata;
-        dummy.select();
-        document.execCommand("copy");
-        document.body.removeChild(dummy);
-        var textC= document.getElementById("copied")
-        textC.style.display = "block"
-        setTimeout(() => {  textC.style.display="none"; }, 2000);
-    }
+}
 
-    function useData(){
-      var textT = document.getElementById('useData').value;
-      var semiSplit = textT.split(" --//-- ")
-      console.log(semiSplit.length)
-      var fullSplit = [];
-      for(i = 0; i < semiSplit.length; i++){
-        var newSplit = semiSplit[i].split(" ++//++ ")
-      fullSplit.push(newSplit[0])
-      fullSplit.push(newSplit[1])
-      }
-      for(i = 0; i < fullSplit.length; i++){
-        if(i%2 ==0){
-        var myKey = fullSplit[i]
-        var myData = fullSplit[i+1]
-        localStorage.setItem(myKey, myData)
-        console.log(i)
-        }
-      }
-      window.location.reload()
-    }
+function useData(){
+     var email = localStorage.getItem("email")
+    window.location.href="http://mosallaei-api.000webhostapp.com/get.php?email=" + email
+}
+
+function changeEmail(){
+  var confi = confirm("By changing the email, the app will reset and connect to the account of the new email. Do you agree?")
+  if(confi === true){
+    var newE = prompt("New email:", "")
+    localStorage.setItem("email", newE)
+        window.localStorage.clear()
+    localStorage.setItem("name", "[TAP TO EDIT]")
+    localStorage.setItem("first", 1)
+    localStorage.setItem("beta", "7ugB3hYa")
+    localStorage.setItem("email", newE)
+    window.location.href="http://mosallaei-api.000webhostapp.com/inite.php?email=" + newE
+  }
+}
+
+
+var em = localStorage.getItem("email")
+var addEm = document.getElementById("emaill")
+addEm.innerHTML="<b>Current Email:</b> " + em
+
+function resetMe(){
+  var conf = confirm("Are you sure you want to reset the app? All data will be lost from this device, however if you saved before, that data is still in the cloud. ")
+  if(conf === true){
+    window.localStorage.clear()
+    localStorage.setItem("name", "[TAP TO EDIT]")
+    localStorage.setItem("first", 1)
+    localStorage.setItem("beta", "7ugB3hYa")
+              localStorage.setItem("saved", "App Reset")
+    window.location.reload()
+  } else{
+    return;
+  }
+}
+
+function delSave(){
+    var conf = confirm("Are you sure you want to remove your save from the cloud? You can always resave it if you change your mind.")
+  if(conf === true){
+    var email = localStorage.getItem("email")
+                  localStorage.setItem("saved", "Data Removed from Cloud")
+        window.location.href="http://mosallaei-api.000webhostapp.com/delete.php?email=" + email
+  }
+}
+
+var lastSaved = document.getElementById("lastS")
+var dateSaved = localStorage.getItem("saved")
+lastSaved.innerHTML = "<b>Latest Update: </b>" + dateSaved
+
 function showMenuA(i) {
   var spanNameB = "#spanC-" + i
   var infoHelp = "#help" + i
@@ -229,25 +220,40 @@ var calendarLink = "http://www.google.com/calendar/event?action=TEMPLATE&text="+
 localStorage.setItem(localName, calendarLink)
 }
 
-function addHW(i) {
-  var homework = prompt("Enter in the homework:", "")
+if(localStorage.getItem("updated")===null){
+  var mess = "<b>Lastest Update:</b> None"
+  localStorage.setItem("updated", mess)
+}
+function addHW() {
+  /*var homework = prompt("Enter in the homework:", "")
   if (homework === null || homework === "") {
     return; //break out of the function early
   }
   var gDate = prompt("Enter the date the HW is due. ENTER IT AS M/D/YYYY (E.x. 4/5/2020). If the month or day is single digit, do NOT add a 0 before it.", "m/d/yyyy")
   if (gDate === null || gDate === "") {
     return; //break out of the function early
-  }
+  }*/
+  var classID = document.getElementById("myList").value;
+  var month = document.getElementById("month").value;
+  var day = document.getElementById("day").value;
+  var year = document.getElementById("year").value;
+  var fullDate = month + "/" + day + "/" + year
+  var homework = document.getElementById("homework11").value;
   var hwID = Math.random() * (1000000 - 1000) + 1000;
-  var className = localStorage.key(i)
+  var className = localStorage.key(classID)
   var hwNAME = className + "-hw-" + hwID
   var dateName = className + "-date-" + hwID
   localStorage.setItem(hwNAME, homework)
-  localStorage.setItem(dateName, gDate)
-  createGCalendar(hwID, className, homework, gDate)
+  localStorage.setItem(dateName, fullDate)
+  createGCalendar(hwID, className, homework, fullDate)
+  var hwA = "<b>Last Updated:</b> New HW added to class: " + className
+  localStorage.setItem("updated", hwA)
+
 location.reload()
 }
-
+var myHWU = localStorage.getItem("updated")
+  var updatedH = document.getElementById("updateHW")
+  updatedH.innerHTML = myHWU
 function editHWA(v) {
   for (i = 0; i < localStorage.length; i++) {
     var check = localStorage.key(i)
@@ -345,37 +351,39 @@ function mainShowHW(){
 for (i = 0; i < localStorage.length; i++) {
   localKey = localStorage.key(i);
   if (localStorage.getItem(localKey) == "isclass") {
+    var colorKey = localKey + " COLOR"
+    var myColor = localStorage.getItem(colorKey)
     xx.style.display = "none"
     var paraA = document.createElement("h2")
-    var line = document.createElement("HR")
+        paraA.style.cssText = `border-radius:10px;background-color:${myColor};padding:10px;`
+
     paraA.setAttribute("class", "classes");
     paraA.setAttribute("id", i)
     // var z = para.getAttribute("id")
     var x = localStorage.key(i)
     paraA.innerHTML = x
     paraA.setAttribute("onclick", `showMenuA(${i})`)
-    hw.appendChild(paraA)
+        hw.appendChild(paraA)
     var newSpanS = document.createElement("SPAN")
 
     var helpInfo = document.createElement("p")
     var helpTag = "help" + i
     helpInfo.setAttribute("id", helpTag)
     helpInfo.setAttribute("class", "helpText")
-    helpInfo.innerText = "Tap class name to show homework"
     hw.appendChild(helpInfo)
 
-    var add = document.createElement("h4")
-    add.innerText = "+ Add Homework"
-    var addID = "spanC-" + i
-    newSpanS.setAttribute("id", addID)
-    add.setAttribute("class", "addHW")
-    add.setAttribute("onclick", `addHW(${i})`)
-    newSpanS.appendChild(add)
-
+    
+    var add = document.createElement("h4");
+    var addID = "spanC-" + i;
+    //newSpanS.setAttribute("id", addID);
+    add.setAttribute("class", "addHW");
+    //newSpanS.appendChild(add);
+  var checkifnohw = 0
     for (j = 0; j < localStorage.length; j++) {
       var newCheck = localStorage.key(j)
       var hwofClass = x + "-hw"
       if (newCheck.includes(hwofClass)) {
+        checkifnohw++
         var lastDash = newCheck.lastIndexOf("-") + 1
         var hwID = newCheck.substr(lastDash, newCheck.length)
         var calendarID = localKey + "-calendar-" + hwID
@@ -387,13 +395,14 @@ for (i = 0; i < localStorage.length; i++) {
         dispAll.innerHTML = "<b>" + actualHW + "</b>" + "<br /> DUE ON " + actualDate + " (Tap to edit/delete)"
         dispAll.setAttribute("class", "dispHW")
         dispAll.setAttribute("parentID", x)
+        dispAll.setAttribute("style", "border-radius:10px;background-color:#e6e6e6;padding:10px;")
         var dispLink = document.createElement("p")
         dispLink.innerHTML = "Tap this to add to GCalendar"
         dispLink.setAttribute("class", "dispHW")
         dispLink.setAttribute("onclick", `javascript:location.href='${calendarLink}'`)
-        dispLink.setAttribute("style", "color:blue;margin-top:-4px;")
+        dispLink.setAttribute("style", "color:blue;margin-top:-30px;border-radius:10px;background-color:#e6e6e6;padding:10px;")
                 var dispICS = document.createElement("p")
-        dispICS.innerHTML = "Tap this to add to other calendar apps"
+        //dispICS.innerHTML = "Tap this to add to other calendar apps"
         dispICS.setAttribute("class", "dispHW")
         // dispICS.setAttribute("onclick", `javascript:cal_single.download("${localKey}")`)
         dispICS.setAttribute("onclick", `createiCAL(${hwID})`)
@@ -409,11 +418,17 @@ for (i = 0; i < localStorage.length; i++) {
                 newSpanS.appendChild(dispICS)
       }
     }
+    if(checkifnohw == 0){
+      var dispNone = document.createElement("P")
+      dispNone.innerText = "No Homework"
+      dispNone.setAttribute("style", "text-align:center;")
+      newSpanS.appendChild(dispNone)
+    }
     hw.appendChild(newSpanS)
-    hw.appendChild(line)
+    //hw.appendChild(line)
     var actID = "#" + addID
     var hideMePls = hw.querySelector(actID)
-    hideMePls.style.display = "none"
+    //hideMePls.style.display = "none"
   }
 }
 

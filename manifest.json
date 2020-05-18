@@ -1,11 +1,11 @@
 {
     "dir": "ltr",
     "lang": "en",
-    "name": "MyLHS",
+    "name": "MyLHS Beta Server",
     "scope": "/",
     "display": "standalone",
     "start_url": "/",
-    "short_name": "MyLHS",
+    "short_name": "MyLHS Beta Server",
     "theme_color": "#b2f2ff",
     "description": "Your personal app for LHS",
     "orientation": "portrait",
